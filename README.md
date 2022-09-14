@@ -206,5 +206,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## License
 
-- Copyright © 2020 Rois Faozi.
+- Copyright © 2022 Rois Faozi.
 - **Staycation is open-sourced software licensed under the MIT license.**
