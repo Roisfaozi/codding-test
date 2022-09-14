@@ -11,7 +11,7 @@ export default function Button({
     return (
       <button
         type='submit'
-        className='text-white cursor-not-allowed bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center '
+        className='first:mr-4 text-white cursor-not-allowed bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center '
         onClick={onClick}
         disabled>
         Loading...
@@ -22,7 +22,7 @@ export default function Button({
     return (
       <button
         type='submit'
-        className='text-white cursor-not-allowed bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center '
+        className='first:mr-4 text-white cursor-not-allowed bg-gray-400 hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center '
         onClick={onClick}
         disabled>
         {title}
@@ -33,7 +33,7 @@ export default function Button({
   return (
     <button
       type='submit'
-      className={`${className} focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center`}
+      className={`${className} first:mr-4 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center`}
       onClick={onClick}>
       {title}
     </button>

@@ -1,70 +1,210 @@
-# Getting Started with Create React App
+# User List Test - React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+User List Test is React based web app to show all the users using API [https://reqres.in/](https://reqres.in/).
 
-## Available Scripts
+Built with:
+
+- React v18
+- Axios
+- TailwindCSS
+
+## Live Preview
+
+[Preview](usersku.netlify.app)
+
+## Api Endpoint Request
+
+1. Login Request
+
+   Api Endpoint
+
+   ```bash
+   https://reqres.in/api/login
+   ```
+
+   Body
+
+   ```json
+   {
+     "email": "eve.holt@reqres.in",
+     "password": "cityslicka"
+   }
+   ```
+
+   Response
+
+   ```json
+   {
+     "token": "QpwL5tke4Pnpja7X4"
+   }
+   ```
+
+2. Users List Request
+
+   Api Endpoint
+
+   ```bash
+   https://reqres.in/api/users?page=1
+   ```
+
+   Change `page` parameter for request pagination data with.
+
+   Response
+
+   ```json
+   {
+     "page": 1,
+     "per_page": 6,
+     "total": 12,
+     "total_pages": 2,
+     "data": [
+       {
+         "id": 1,
+         "email": "george.bluth@reqres.in",
+         "first_name": "George",
+         "last_name": "Bluth",
+         "avatar": "https://reqres.in/img/faces/1-image.jpg"
+       },
+       {
+         "id": 2,
+         "email": "janet.weaver@reqres.in",
+         "first_name": "Janet",
+         "last_name": "Weaver",
+         "avatar": "https://reqres.in/img/faces/2-image.jpg"
+       },
+       {
+         "id": 3,
+         "email": "emma.wong@reqres.in",
+         "first_name": "Emma",
+         "last_name": "Wong",
+         "avatar": "https://reqres.in/img/faces/3-image.jpg"
+       },
+       {
+         "id": 4,
+         "email": "eve.holt@reqres.in",
+         "first_name": "Eve",
+         "last_name": "Holt",
+         "avatar": "https://reqres.in/img/faces/4-image.jpg"
+       },
+       {
+         "id": 5,
+         "email": "charles.morris@reqres.in",
+         "first_name": "Charles",
+         "last_name": "Morris",
+         "avatar": "https://reqres.in/img/faces/5-image.jpg"
+       },
+       {
+         "id": 6,
+         "email": "tracey.ramos@reqres.in",
+         "first_name": "Tracey",
+         "last_name": "Ramos",
+         "avatar": "https://reqres.in/img/faces/6-image.jpg"
+       }
+     ],
+     "support": {
+       "url": "https://reqres.in/#support-heading",
+       "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+     }
+   }
+   ```
+
+3. Get User Detail with id
+   Api Endpoint
+
+   ```bash
+   https://reqres.in/api/users/2
+   ```
+
+   Response
+
+   ```json
+   {
+     "data": {
+       "id": 2,
+       "email": "janet.weaver@reqres.in",
+       "first_name": "Janet",
+       "last_name": "Weaver",
+       "avatar": "https://reqres.in/img/faces/2-image.jpg"
+     },
+     "support": {
+       "url": "https://reqres.in/#support-heading",
+       "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+     }
+   }
+   ```
+
+## Features
+
+- Login
+- Logout
+- Users list
+- User detail
+
+## Implementing routes
+
+When clicking on the users link in the UI, notice that the URL changes to `/user/:id`.
+
+Routes structure in `App.js`:
+
+```javascript
+<Router>
+  <div
+    className='App pb-6 bg-gradient-to-r
+    from-indigo-600
+    to-blue-400 min-h-screen h-full'>
+    <Routes>
+      <Route path='/' element={<Login />}></Route>
+      <Route path='users' element={<Users />} />
+      <Route path='users/:id' element={<UserDetail />} />
+      <Route path='*' element={<PageNotFound />} />
+    </Routes>
+  </div>
+</Router>
+```
+
+## Stack
+
+- React v18
+- Axios
+- TailwindCSS
+
+This project implements basic of showing data from API with user login and error state handling.
 
 In the project directory, you can run:
 
-### `npm start`
+### Usage :
+
+1. **Clone Repository**
+
+```bash
+git clone https://github.com/Roisfaozi/user-list-test.git
+cd user-list-test
+```
+
+2. `npm install` the first time you clone this repo
+
+```bash
+npm install
+```
+
+3. `npm start` anytime you want to start developing. This will watch your JS files and re-run webpack when there are changes
+
+```bash
+npm start
+```
+
+4. Start coding!
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Author
 
-### `npm test`
+- Facebook : [Rois Faozi](https://web.facebook.com/odjzykazama)
+- LinkedIn : [Rois Faozi](https://www.linkedin.com/in/roisfaozi/)
+- Website : [roisfaozi.com](https://www.roisfaozi.com/in/roisfaozi/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## License
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Copyright © 2020 Rois Faozi.
+- **Staycation is open-sourced software licensed under the MIT license.**
